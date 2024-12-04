@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Property</title>
+</head>
+<body>
+    <h1>Add Property</h1>
+    <form method="POST" action="/add-property" enctype="multipart/form-data">
+        <div class="ltn__tab-menu ltn__tab-menu-3 ltn__tab-menu-top-right-- text-uppercase--- text-center">
+            <div class="nav">
+                <a class="active show" data-toggle="tab" href="#liton_tab_3_1">1. Description</a>
+                <a data-toggle="tab" href="#liton_tab_3_2" class="">2. Media</a>
+                <a data-toggle="tab" href="#liton_tab_3_3" class="">3. Location</a>
+                <a data-toggle="tab" href="#liton_tab_3_4" class="">4. Details</a>
+                <a data-toggle="tab" href="#liton_tab_3_5" class="">5. Amenities</a>
+            </div>
+        </div>
+        <div class="tab-content">
+            <!-- Description Tab -->
+            <div class="tab-pane fade active show" id="liton_tab_3_1">
+                <div class="ltn__apartments-tab-content-inner">
+                    <h6>Property Description</h6>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-item input-item-textarea ltn__custom-icon">
+                                <input type="text" name="title" placeholder="*Title (mandatory)">
+                            </div>
+                            <div class="input-item input-item-textarea ltn__custom-icon">
+                                <textarea name="description" placeholder="Description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <h6>Property Price</h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-item input-item-textarea ltn__custom-icon">
+                                <input type="text" name="price" placeholder="Price in KES (only numbers)">
+                            </div>
+                        </div>
+                    </div>
+                    <h6>Select Categories</h6>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="input-item">
+                                <select name="category" class="nice-select">
+                                    <option value="None">None</option>
+                                    <option value="Rentals">Rent</option>
+                                    <option value="Sales">Sale</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="input-item">
+                                <select name="property_type" class="nice-select">
+                                    <option value="">Select Property Type</option>
+                                    <option value="House">House</option>
+                                    <option value="Apartment">Apartment</option>
+                                    <option value="Office">Condo</option>
+                                    <option value="Duplex">Duplex</option>
+                                    <option value="Villa">Villa</option>
+                                    <option value="Office">Office</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Media Tab -->
+            <div class="tab-pane fade" id="liton_tab_3_2">
+                <div class="ltn__product-tab-content-inner">
+                    <h6>Property Media</h6>
+                    <input type="file" name="file" class="btn theme-btn-3 mb-10"><br>
+                    <p>
+                        <small>* At least 1 image is required for a valid submission. Minimum size is 500x500px.</small><br>
+                        <small>* PDF files upload supported as well.</small><br>
+                        <small>* Images might take longer to be processed.</small>
+                    </p>
+                    <h6>Video Option</h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-item input-item-textarea ltn__custom-icon">
+                                <input type="url" id="video_url" name="video_url" placeholder="Embed Video link">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Location Tab -->
+            <div class="tab-pane fade" id="liton_tab_3_3">
+                <div class="ltn__product-tab-content-inner">
+                    <h6>Property Location</h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-item input-item-textarea ltn__custom-icon">
+                                <input type="text" name="address" placeholder="*Address">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-item input-item-textarea ltn__custom-icon">
+                                <input type="text" name="country" placeholder="Country">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-item input-item-textarea ltn__custom-icon">
+                                <input type="text" name="city" placeholder="City">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Details Tab -->
+            <div class="tab-pane fade" id="liton_tab_3_4">
+                <div class="ltn__product-tab-content-inner">
+                    <h6>Property Details</h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-item input-item-textarea ltn__custom-icon">
+                                <input type="text" name="size" placeholder="Size in ft² (*only numbers)">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-item input-item-textarea ltn__custom-icon">
+                                <input type="text" name="rooms" placeholder="Rooms (*only numbers)">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-item input-item-textarea ltn__custom-icon">
+                                <input type="text" name="bedrooms" placeholder="Bedrooms (*only numbers)">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-item input-item-textarea ltn__custom-icon">
+                                <input type="text" name="bathrooms" placeholder="Bathrooms (*only numbers)">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-item input-item-textarea ltn__custom-icon">
+                                <input type="text" name="garages" placeholder="Garages (*text)">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-item input-item-textarea ltn__custom-icon">
+                                <input type="text" name="basement" placeholder="Basement (*text)">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-item input-item-textarea ltn__custom-icon">
+                                <input type="text" name="extra_details" placeholder="Extra Details (*text)">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-item">
+                                <select name="floors" class="nice-select">
+                                    <option>Floors No</option>
+                                    <option>Not Available</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="input-item input-item-textarea ltn__custom-icon">
+                                <textarea name="owner_notes" placeholder="Owner/Agent notes"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Amenities Tab -->
+            <div class="tab-pane fade" id="liton_tab_3_5">
+                <div class="ltn__product-tab-content-inner">
+                    <h6>Amenities and Features</h6>
+                    <h6>Interior Details</h6>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <label class="checkbox-item">Equipped Kitchen
+                                <input type="checkbox" name="equipped_kitchen">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <label class="checkbox-item">Gym
+                                <input type="checkbox" name="gym">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <label class="checkbox-item">Laundry
+                                <input type="checkbox" name="laundry">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <h6 class="mt-20">Outdoor Details</h6>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <label class="checkbox-item">Back yard
+                                <input type="checkbox" name="backyard">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <label class="checkbox-item">Front yard
+                                <input type="checkbox" name="frontyard">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <label class="checkbox-item">Garage
+                                <input type="checkbox" name="garage">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <label class="checkbox-item">Pool
+                                <input type="checkbox" name="pool">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <h6 class="mt-20">Utilities</h6>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <label class="checkbox-item">Electricity
+                                <input type="checkbox" name="electricity">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <label class="checkbox-item">Water
+                                <input type="checkbox" name="water">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <label class="checkbox-item">Ventilation
+                                <input type="checkbox" name="ventilation">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+    
+                    <div class="btn-wrapper text-center--- mt-30">
+                        <button class="btn theme-btn-1 btn-effect-1 text-uppercase" type="submit">Submit Property</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+        
+    
+</body>
+</html>
