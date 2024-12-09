@@ -1,0 +1,25 @@
+<!-- templates/product-details.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ property.title }}</title>
+</head>
+<body>
+    <h1>{{ property.title }}</h1>
+    <img src="{{ property.images }}" alt="{{ property.title }}">
+    
+    <div class="property-info">
+        <p><strong>Price:</strong> ${{ property.price }} / Month</p>
+        <p><strong>Location:</strong> {{ property.city }}, {{ property.country }}</p>
+        <p><strong>Description:</strong> {{ property.description }}</p>
+        <p><strong>Size:</strong> {{ property.size }} sqft</p>
+        <p><strong>Bedrooms:</strong> {{ property.bedrooms }}</p>
+        <p><strong>Bathrooms:</strong> {{ property.bathrooms }}</p>
+    </div>
+
+    <a href="{{ url_for('index') }}">Back to Property Listings</a>
+</body>
+</html>

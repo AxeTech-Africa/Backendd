@@ -15,28 +15,82 @@
     <div class=" row justify-content-center">
         <div class="col-sm-6 mt-4">
             <h2>Register form</h2>
-            <form action="/register" method="POST">
+            <form action="/register" method="POST" onsubmit="showSuccessMessage()">
                 <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" required>
                 </div>
                 
                 <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
                 </div>
-
+    
                 <div class="form-group">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" required>
                 </div>
-
+    
+                <div class="form-group">
+                    <label for="confirm-pwd">Confirm Password:</label>
+                    <input type="password" class="form-control" id="confirm-pwd" placeholder="Confirm password" name="confirm-password" onkeyup="checkPasswordMatch()" required>
+                    <small id="password-match-message"></small>
+                </div>
+    
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" onclick="togglePassword()">
+                    <label class="form-check-label" for="show-password">Show Password</label>
+                    <img id="toggle-icon" src="https://img.icons8.com/ios-filled/50/000000/invisible.png" alt="Toggle Password Visibility" class="ml-2" style="cursor: pointer;">
+                </div>
+    
                 <button type="submit" class="btn btn-dark">Register</button>
             </form>
+    
+            <!-- Success Message -->
+            <div id="success-message" class="alert alert-success mt-4" style="display:none;">
+                <strong>Success!</strong> You have registered successfully. Please check your email for confirmation.
+            </div>
         </div>
     </div>
   
 </div>
+<script>
+    // Function to toggle password visibility
+    function togglePassword() {
+        var passwordField = document.getElementById("pwd");
+        var confirmPasswordField = document.getElementById("confirm-pwd");
+        var passwordIcon = document.getElementById("toggle-icon");
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            confirmPasswordField.type = "text";
+            passwordIcon.src = "https://img.icons8.com/ios-filled/50/000000/visible.png";
+        } else {
+            passwordField.type = "password";
+            confirmPasswordField.type = "password";
+            passwordIcon.src = "https://img.icons8.com/ios-filled/50/000000/invisible.png";
+        }
+    }
 
+    // Function to check if passwords match
+    function checkPasswordMatch() {
+        var password = document.getElementById("pwd").value;
+        var confirmPassword = document.getElementById("confirm-pwd").value;
+        var message = document.getElementById("password-match-message");
+
+        if (password !== confirmPassword) {
+            message.style.color = "red";
+            message.textContent = "Passwords do not match!";
+        } else {
+            message.style.color = "green";
+            message.textContent = "Passwords match.";
+        }
+    }
+
+    // Show success message after registration (to be used on successful form submission)
+    function showSuccessMessage() {
+        var successMessage = document.getElementById("success-message");
+        successMessage.style.display = "block";
+    }
+</script>
 </body>
 </html>
